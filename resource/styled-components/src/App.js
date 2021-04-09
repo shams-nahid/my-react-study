@@ -3,14 +3,29 @@ import styled from 'styled-components';
 // import { css } from 'styled-components';
 
 const StyledButton = styled.button`
-  &:hover {
-    background-color: green;
+  & .greenText {
+    color: green;
   }
 `;
 
-const Button = ({ children }) => <StyledButton>{children}</StyledButton>
+const Button = ({ children }) => <StyledButton>
+  {children}
+  <p className="greenText">Green Text Class Implementation</p>
+</StyledButton>;
 
-const App = () => <Button>Get Hover Effect</Button>;
+const App = () => <Button>Hello</Button>;
+
+// -------------------------------------------------------------------------------
+// 07 HOVER EFFECTS
+// const StyledButton = styled.button`
+//   &:hover {
+//     background-color: green;
+//   }
+// `;
+
+// const Button = ({ children }) => <StyledButton>{children}</StyledButton>
+
+// const App = () => <Button>Get Hover Effect</Button>;
 
 // -------------------------------------------------------------------------------
 // 06 REUSABLE STYLED COMPONENTS
