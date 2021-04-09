@@ -1,19 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { css } from 'styled-components';
+import { keyframes } from 'styled-components';
 
-const StyledButton = styled.button`
-  & .greenText {
-    color: green;
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 `;
 
-const Button = ({ children }) => <StyledButton>
-  {children}
-  <p className="greenText">Green Text Class Implementation</p>
-</StyledButton>;
+const AnimatedDiv = styled.div`
+  animation: 2s ${fadeIn} ease-in;
+`;
 
-const App = () => <Button>Hello</Button>;
+const App = () => <AnimatedDiv>Welcome to Fade in Animation</AnimatedDiv>
+
+// -------------------------------------------------------------------------------
+// 08 USING CLASS
+// const StyledButton = styled.button`
+//   & .greenText {
+//     color: green;
+//   }
+// `;
+
+// const Button = ({children}) => <StyledButton>
+//   {children}
+//   <p className="greenText">Green Text Class Implementation</p>
+// </StyledButton>;
+
+// const App = () => <Button>Hello</Button>;
 
 // -------------------------------------------------------------------------------
 // 07 HOVER EFFECTS
@@ -23,7 +42,7 @@ const App = () => <Button>Hello</Button>;
 //   }
 // `;
 
-// const Button = ({ children }) => <StyledButton>{children}</StyledButton>
+// const Button = ({children}) => <StyledButton>{children}</StyledButton>
 
 // const App = () => <Button>Get Hover Effect</Button>;
 
@@ -53,7 +72,7 @@ const App = () => <Button>Hello</Button>;
 //   border: 1rem solid red;
 // `;
 
-// const Button = ({ children }) => <MyButton>{children}</MyButton>
+// const Button = ({children}) => <MyButton>{children}</MyButton>
 
 // const App = () => <Button>My Over Ride Styled Button</Button>
 
@@ -66,7 +85,7 @@ const App = () => <Button>Hello</Button>;
 //   `)};
 // `;
 
-// const Button = ({ primary, children }) => <StyledButton primary={primary}>
+// const Button = ({primary, children}) => <StyledButton primary={primary}>
 //   {children}
 // </StyledButton>
 
@@ -81,7 +100,7 @@ const App = () => <Button>Hello</Button>;
 //   color: ${({ primary }) => (primary ? 'green' : 'black')};
 // `;
 
-// const Button = ({ primary, children }) => <StyledButton primary={primary}>
+// const Button = ({primary, children}) => <StyledButton primary={primary}>
 //   {children}
 // </StyledButton>
 
