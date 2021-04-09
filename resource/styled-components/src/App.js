@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import { css } from 'styled-components';
 import { keyframes } from 'styled-components';
 
-const fadeIn = keyframes`
+const FadeIn = keyframes`
   0% {
     opacity: 0;
   }
@@ -13,11 +13,38 @@ const fadeIn = keyframes`
   }
 `;
 
-const AnimatedDiv = styled.div`
-  animation: 2s ${fadeIn} ease-in;
+const StyledDiv = styled.div`
+  background-color: green;
 `;
 
-const App = () => <AnimatedDiv>Welcome to Fade in Animation</AnimatedDiv>
+const WrapperComponent = styled.div`
+  &:hover ${StyledDiv} {
+    background-color: red;
+    animation: 2s ${FadeIn} ease-in;
+  }
+`;
+
+const App = () => <WrapperComponent>
+  <StyledDiv>Hello</StyledDiv>
+</WrapperComponent>
+
+// -------------------------------------------------------------------------------
+// 09 KEYFRAMES FOR ANIMATIONS
+// const fadeIn = keyframes`
+//   0% {
+//     opacity: 0;
+//   }
+
+//   100% {
+//     opacity: 1;
+//   }
+// `;
+
+// const AnimatedDiv = styled.div`
+//   animation: 2s ${fadeIn} ease-in;
+// `;
+
+// const App = () => <AnimatedDiv>Welcome to Fade in Animation</AnimatedDiv>
 
 // -------------------------------------------------------------------------------
 // 08 USING CLASS
