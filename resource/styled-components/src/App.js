@@ -3,11 +3,19 @@ import styled from 'styled-components';
 // import { css } from 'styled-components';
 // import { keyframes } from 'styled-components';
 
-const StyledLink = styled.a.attrs(() => ({ target: '_blank' }))`
-  color: green;
+const StyledDiv = styled.div`
+  color: ${({ theme }) => theme.colors.primary}
 `;
 
-const App = () => <StyledLink href='https://www.google.com'>Google</StyledLink>
+const App = () => <StyledDiv>Color From Theme</StyledDiv>;
+
+// -------------------------------------------------------------------------------
+// 11 OVERRIDING ATTRIBUTES
+// const StyledLink = styled.a.attrs(() => ({ target: '_blank' }))`
+//   color: green;
+// `;
+
+// const App = () => <StyledLink href='https://www.google.com'>Google</StyledLink>
 
 // -------------------------------------------------------------------------------
 // 10 ANIMATIONS ON EFFECT
