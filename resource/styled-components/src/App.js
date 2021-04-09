@@ -1,21 +1,37 @@
 import React from 'react';
-import styled, { css } from 'styled-components'
+import styled from 'styled-components';
+// import { css } from 'styled-components';
 
-const StyledButton = styled.button`
-  ${({ primary }) => (primary && css`
-    color: white;
-    background-color: green;
-  `)};
+const ExistingStyledButton = styled.button`
+  color: white;
+  background-color: green;
 `;
 
-const Button = ({ primary, children }) => <StyledButton primary={primary}>
-  {children}
-</StyledButton>
+const MyButton = styled(ExistingStyledButton)`
+  border: 1rem solid red;
+`;
 
-const App = () => <>
-  <Button primary>Primary Button</Button>
-  <Button>Default Button</Button>
-</>;
+const Button = ({ children }) => <MyButton>{children}</MyButton>
+
+const App = () => <Button>My Over Ride Styled Button</Button>
+
+// -------------------------------------------------------------------------------
+// 04 NESTED CSS IMPLEMENTATION
+// const StyledButton = styled.button`
+//   ${({ primary }) => (primary && css`
+//     color: white;
+//     background-color: green;
+//   `)};
+// `;
+
+// const Button = ({ primary, children }) => <StyledButton primary={primary}>
+//   {children}
+// </StyledButton>
+
+// const App = () => <>
+//   <Button primary>Primary Button</Button>
+//   <Button>Default Button</Button>
+// </>;
 
 // -------------------------------------------------------------------------------
 // 03 PASSING PROPS
