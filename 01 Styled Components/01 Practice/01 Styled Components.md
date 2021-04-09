@@ -1,5 +1,7 @@
 ## Styled Components
 
+By default, the styled components css styles is scoped to the local css class. Although we can override the limitations by using the [createGlobalStyle](https://styled-components.com/docs/api#createglobalstyle).
+
 ### Advantages
 ---
 
