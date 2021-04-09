@@ -2,18 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 // import { css } from 'styled-components';
 
-const ExistingStyledButton = styled.button`
-  color: white;
-  background-color: green;
-`;
-
-const MyButton = styled(ExistingStyledButton)`
+const Wrapper = styled.span`
   border: 1rem solid red;
 `;
 
-const Button = ({ children }) => <MyButton>{children}</MyButton>
+const App = () => <>
+  <Wrapper>
+    Hello
+  </Wrapper>
+  <Wrapper>
+    <button>Click Me</button>
+  </Wrapper>
+</>
 
-const App = () => <Button>My Over Ride Styled Button</Button>
+// -------------------------------------------------------------------------------
+// 05 EXTENDING STYLES
+// const ExistingStyledButton = styled.button`
+//   color: white;
+//   background-color: green;
+// `;
+
+// const MyButton = styled(ExistingStyledButton)`
+//   border: 1rem solid red;
+// `;
+
+// const Button = ({ children }) => <MyButton>{children}</MyButton>
+
+// const App = () => <Button>My Over Ride Styled Button</Button>
 
 // -------------------------------------------------------------------------------
 // 04 NESTED CSS IMPLEMENTATION
