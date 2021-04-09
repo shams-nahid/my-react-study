@@ -1,32 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { css } from 'styled-components';
-import { keyframes } from 'styled-components';
+// import { keyframes } from 'styled-components';
 
-const FadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+const StyledLink = styled.a.attrs(() => ({ target: '_blank' }))`
+  color: green;
 `;
 
-const StyledDiv = styled.div`
-  background-color: green;
-`;
+const App = () => <StyledLink href='https://www.google.com'>Google</StyledLink>
 
-const WrapperComponent = styled.div`
-  &:hover ${StyledDiv} {
-    background-color: red;
-    animation: 2s ${FadeIn} ease-in;
-  }
-`;
+// -------------------------------------------------------------------------------
+// 10 ANIMATIONS ON EFFECT
+// const FadeIn = keyframes`
+//   0% {
+//     opacity: 0;
+//   }
 
-const App = () => <WrapperComponent>
-  <StyledDiv>Hello</StyledDiv>
-</WrapperComponent>
+//   100% {
+//     opacity: 1;
+//   }
+// `;
+
+// const StyledDiv = styled.div`
+//   background-color: green;
+// `;
+
+// const WrapperComponent = styled.div`
+//   &:hover ${StyledDiv} {
+//     background-color: red;
+//     animation: 2s ${FadeIn} ease-in;
+//   }
+// `;
+
+// const App = () => <WrapperComponent>
+//   <StyledDiv>Hello</StyledDiv>
+// </WrapperComponent>
 
 // -------------------------------------------------------------------------------
 // 09 KEYFRAMES FOR ANIMATIONS
