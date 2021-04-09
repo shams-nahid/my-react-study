@@ -2,18 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 // import { css } from 'styled-components';
 
-const Wrapper = styled.span`
-  border: 1rem solid red;
+const StyledButton = styled.button`
+  &:hover {
+    background-color: green;
+  }
 `;
 
-const App = () => <>
-  <Wrapper>
-    Hello
-  </Wrapper>
-  <Wrapper>
-    <button>Click Me</button>
-  </Wrapper>
-</>
+const Button = ({ children }) => <StyledButton>{children}</StyledButton>
+
+const App = () => <Button>Get Hover Effect</Button>;
+
+// -------------------------------------------------------------------------------
+// 06 REUSABLE STYLED COMPONENTS
+// const Wrapper = styled.span`
+//   border: 1rem solid red;
+// `;
+
+// const App = () => <>
+//   <Wrapper>
+//     Hello
+//   </Wrapper>
+//   <Wrapper>
+//     <button>Click Me</button>
+//   </Wrapper>
+// </>
 
 // -------------------------------------------------------------------------------
 // 05 EXTENDING STYLES
