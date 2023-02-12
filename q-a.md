@@ -98,6 +98,16 @@ UI is changed with 3 different phases,
 - Pre-commit
 - Commit
 
+Considering class component,
+
+- componentWillMount (deprecated) - this is most commonly used for App configuration in your root component.
+- componentDidMount - here you want to do all the setup you couldn’t do without a DOM, and start getting all the data you need. Also if you want to set up eventListeners etc. this lifecycle hook is a good place to do that.
+- componentWillReceiveProps (deprecated) - this lifecycle acts on particular prop changes to trigger state transitions.
+- shouldComponentUpdate - if you’re worried about wasted renders shouldComponentUpdate is a great place to improve performance as it allows you to prevent a rerender if component receives new prop. - shouldComponentUpdate should always return a boolean and based on what this is will determine if the component is rerendered or not.
+- componentWillUpdate (deprecated) - rarely used. It can be used instead of componentWillReceiveProps on a component that also has shouldComponentUpdate (but no access to previous props).
+- componentDidUpdate - also commonly used to update the DOM in response to prop or state changes.
+- componentWillUnmount - enables you can cancel any outgoing network requests, or remove all event listeners associated with the component.
+
 **8. What is HOC?**
 
 - Higher Order Component
@@ -305,3 +315,44 @@ const ParentComponent = () => {
 - Less memory
 - Do not break CSS hierarchy
 - DOM inspector is cleaner
+
+**32. What is context?**
+
+Context is a way to pass data to child without sending through props.
+
+**33. What are props?**
+
+Properties passed from parent to child and readonly.
+
+**34. Whats the difference between props and state?**
+
+Props are readonly, comes from the parent. States are components internal object and are supposed to change over time.
+
+**35. What is pure component?**
+
+When a component does not have any state.
+
+**36. What are the difference of smart and dump component?**
+
+Smart component has state or manage state by state container. Dump components are driven by it's props itself.
+
+**37. What happens when setState is being called?**
+
+- Update the state asynchronously with the passed object
+- Update the component and corresponding child
+- For multiple actions, it sometimes optimize operations by batch execution
+
+**38. What is reactDom?**
+
+It renders react components into DOM. Using reconciliation, it sync the vDom and rDom.
+
+**39. How does React prevent injection attacks?**
+
+TODO
+
+## References
+
+- https://github.com/sudheerj/reactjs-interview-questions
+- https://github.com/WebPredict/react-interview-questions
+- https://github.com/Pau1fitz/react-interview
+- https://devinterview.io/dev/react-interview-questions
