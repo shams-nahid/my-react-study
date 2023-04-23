@@ -113,7 +113,7 @@ Considering class component,
 - Higher Order Component
 - Takes a component
 - Returns a new component
-- Its a pure component
+- Its a pure component [For same props and state, always output is same]
 
 **9. How do you access imperative API of web components?**
 
@@ -143,10 +143,51 @@ React has unidirectional data flow, i.e, only data is passed from parent to chil
 
 **14. What is concurrent rendering?**
 
+- Make app responsive
 - Used to call `async` mode
 - Allow paused a long running rendering for high priority rendering
 - Use `React.unstable_ConcurrentMode` to enable component level
 - Use `ReactDom.unstable_ConcurrentMode` to enable in application level
+
+Allow render component and interact with UI even though some components are still rendering.
+
+```jsx
+function App() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleClick}>Increment</button>
+      <SlowComponent />
+      <FastComponent />
+    </div>
+  );
+}
+
+function SlowComponent() {
+  // Simulate a slow rendering component
+  const startTime = performance.now();
+  while (performance.now() - startTime < 2000) {}
+
+  return <div>Slow component</div>;
+}
+
+function FastComponent() {
+  return <div>Fast component</div>;
+}
+```
+
+In this example, the App component renders a SlowComponent and a FastComponent. The SlowComponent simulates a slow rendering component by blocking the UI thread for 2 seconds. The FastComponent is a simple component that renders quickly.
+
+If you click the "Increment" button in the App component, you'll notice that the count updates immediately, even though the SlowComponent is still rendering. This is because React is using concurrent rendering to prioritize the update to the count over the slow rendering of the SlowComponent. Once the count has updated, React can finish rendering the SlowComponent.
+
+Overall, concurrent rendering can help make React applications feel more responsive and improve performance by optimizing the order and timing of component rendering.
+
 
 **15. How to re render on change of browser window size?**
 
@@ -331,6 +372,8 @@ Props are readonly, comes from the parent. States are components internal object
 **35. What is pure component?**
 
 When a component does not have any state.
+OR
+Return same output for same props and state.
 
 **36. What are the difference of smart and dump component?**
 
@@ -349,6 +392,75 @@ It renders react components into DOM. Using reconciliation, it sync the vDom and
 **39. How does React prevent injection attacks?**
 
 TODO
+
+**40. Explain SSR**
+
+TODO
+
+**41. What are children in react?**
+
+TODO
+
+**42. What are stores, actions, reducers and selectors in redux-toolkit?**
+
+TODO
+
+**43. What are redux-saga or redux-thunk? Use cases?**
+
+TODO
+
+**44. When to eject the create-react-app?**
+
+- Require modifying the build configuration or webpack setup
+- Need to add plugins in webpack
+- 3rd party library requires to update webpack configurations
+
+**45. Controlled vs Uncontrolled component**
+
+A controlled component get data from props and on changes, pass these data using callback. Parent of the component are responsible to manage this controlled component.
+
+On the other hand, uncontrolled component manage its own state and handle events inside the component.
+
+**46. How to improve static type checking?**
+
+Static type checking is compile time type checking. We can improve using,
+
+- TypeScript
+- Add types of props
+
+**47. What is forceUpdate?**
+
+In class component, we can update the component even if the state and props are not changed.
+
+To force update the component,
+
+```js
+this.forceUpdate();
+```
+
+**48. How to optimize react app performance?**
+
+- The chrome `performance` tab can provide good insights
+- Look for not necessary rendering (React profiler can show the rendering of the components)
+- Inside component, using `useMemo`, `useCallBack`, lazy loading can help improving the performance
+- 3rd party tools, like New Relic, DataDog, AppDynamics can monitor app for better performance.
+
+**49. What is strict mode component?**
+
+- Identify legacy features
+- Detect unexpected side-effects
+- Detect deprecated APIs
+- Warn about potential performance issues
+
+To use strict mode in react,
+
+```
+function App() {
+  return <React.StrictMode>
+    <div></div>
+  </React.StrictMode>
+}
+```
 
 ## References
 
