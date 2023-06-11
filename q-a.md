@@ -80,6 +80,27 @@ When the data of input is stored in dom and after submit form, we query data fro
 
 Create element creates object representation of UI. Clone element use to clone a element to pass as props.
 
+`createElement` takes three arguments,
+
+- Type of element
+- Properties
+- Children
+
+```jsx
+const element = React.createElement('div', { className: 'my-class' }, 'Hello, World!');
+```
+
+On the other hand, `cloneElement` takes two arguments,
+
+- An element to clone
+- Updated properties
+
+```jsx
+const originalElement = <div className="my-class">Hello, World!</div>;
+const clonedElement = React.cloneElement(originalElement, { className: 'new-class' });
+
+```
+
 **6. What is Lifting State Up in React?**
 
 When multiple sibling/ancestor components use same state, lift the state up to the parent component.
@@ -95,8 +116,8 @@ Component has 3 lifecycle phases,
 UI is changed with 3 different phases,
 
 - Render
-- Pre-commit
-- Commit
+- Pre-commit (Component will receive props)
+- Commit (Component did update)
 
 Considering class component,
 
@@ -468,3 +489,7 @@ function App() {
 - https://github.com/WebPredict/react-interview-questions
 - https://github.com/Pau1fitz/react-interview
 - https://devinterview.io/dev/react-interview-questions
+
+## Mock Interview
+
+- [Turing](https://www.youtube.com/watch?v=6qERg1Yt1QQ)
